@@ -8,7 +8,10 @@ void	free_split(char **arr)
 		return ;
 	i = 0;
 	while (arr[i])
-		free(arr[i++]);
+	{
+		free(arr[i]);
+		i++;
+	}
 	free(arr);
 }
 
@@ -57,18 +60,11 @@ static char	*extract_word(char *s, int *pos)
 	return (word);
 }
 
-char	**ft_split_spaces(char *s, int *count)
+static int	fill_result(char **result, char *s, int cnt)
 {
-	char	**result;
-	int		cnt;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
-	cnt = count_words(s);
-	*count = cnt;
-	result = malloc((cnt + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
 	i = 0;
 	j = 0;
 	while (j < cnt)
@@ -78,10 +74,25 @@ char	**ft_split_spaces(char *s, int *count)
 		{
 			result[j] = NULL;
 			free_split(result);
-			return (NULL);
+			return (0);
 		}
 		j++;
 	}
 	result[j] = NULL;
+	return (1);
+}
+
+char	**ft_split_spaces(char *s, int *count)
+{
+	char	**result;
+	int		cnt;
+
+	cnt = count_words(s);
+	*count = cnt;
+	result = malloc((cnt + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	if (!fill_result(result, s, cnt))
+		return (NULL);
 	return (result);
 }

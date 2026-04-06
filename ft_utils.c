@@ -21,20 +21,28 @@ int	ft_isspace(char c)
 		|| c == '\r' || c == '\f' || c == '\v');
 }
 
+static int	read_sign(const char **s)
+{
+	int	sign;
+
+	sign = 1;
+	if (**s == '-')
+	{
+		sign = -1;
+		(*s)++;
+	}
+	else if (**s == '+')
+		(*s)++;
+	return (sign);
+}
+
 int	ft_atoi_safe(const char *s, long *result)
 {
 	long	n;
 	int		sign;
 
 	n = 0;
-	sign = 1;
-	if (*s == '-')
-	{
-		sign = -1;
-		s++;
-	}
-	else if (*s == '+')
-		s++;
+	sign = read_sign(&s);
 	if (!ft_isdigit(*s))
 		return (0);
 	while (ft_isdigit(*s))

@@ -8,11 +8,21 @@ static void	rotate_min_to_top(t_stack *a)
 	min_pos = stack_min_pos(a);
 	bwd = a->size - min_pos;
 	if (min_pos <= bwd)
-		while (min_pos-- > 0)
+	{
+		while (min_pos > 0)
+		{
 			op_ra(a);
+			min_pos--;
+		}
+	}
 	else
-		while (bwd-- > 0)
+	{
+		while (bwd > 0)
+		{
 			op_rra(a);
+			bwd--;
+		}
+	}
 }
 
 void	sort_3(t_stack *a)

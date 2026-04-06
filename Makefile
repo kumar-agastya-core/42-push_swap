@@ -6,9 +6,15 @@ SRCS	=	main.c \
 			parse.c \
 			ft_utils.c \
 			ft_split.c \
-			stack.c \
-			operations.c \
+			stack_init.c \
+			stack_utils.c \
+			op_swap.c \
+			op_push.c \
+			op_rotate.c \
+			op_rev_rotate.c \
 			sort.c \
+			sort_insert.c \
+			sort_exec.c \
 			sort_large.c
 
 OBJS	= $(SRCS:.c=.o)
