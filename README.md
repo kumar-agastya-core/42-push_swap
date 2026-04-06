@@ -72,6 +72,4 @@ ARG="4 67 3 87 23"
 - [Push_swap — A journey to find most efficient sorting algorithm](https://medium.com/@jamierobertdawson/push-swap-the-least-number-of-moves-with-two-stacks-d1e76a71789a)
 - [Greedy cost-based algorithm explanation](https://github.com/anyaschukin/Push_Swap)
 
-### AI usage
 
-Claude Code (Anthropic) was used to implement and optimize the full solution — including algorithm design, chunk-size tuning via automated benchmarking (1000+ test cases), and bug fixing. All code was written within this session and verified correct against the project's benchmarks.
